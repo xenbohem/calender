@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Obsidian Veil Calendar: Cerulean Echoes – Directors Cut</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000000;
+            background: 
+                linear-gradient(45deg, #000000 50%, #0047AB 100%),
+                radial-gradient(circle, rgba(0, 123, 167, 0.2) 1px, transparent 1px),
+                radial-gradient(circle, rgba(0, 123, 167, 0.2) 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            background-position: 0 0, 0 0, 10px 10px;
+            color: #E0FFFF;
+            margin: 0;
+            padding: 20px;
+            animation: glitch 5s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; transform: translateX(1px); }
+        }
+        h1, h2 {
+            color: #007BA7;
+            text-align: center;
+            text-shadow: 0 0 15px #007BA7;
+        }
+        .month {
+            background-color: rgba(0, 71, 171, 0.9);
+            border: 2px solid #007BA7;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px #007BA7;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin: 10px 0;
+        }
+        .day {
+            background-color: #000000;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #007BA7;
+            box-shadow: inset 0 0 10px rgba(0, 123, 167, 0.7);
+        }
+        .day input[type="checkbox"] {
+            margin-top: 5px;
+            filter: hue-rotate(180deg);
+        }
+        .extras {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 5px solid #007BA7;
+            box-shadow: 0 0 20px #007BA7;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #E0FFFF;
+            margin: 0 10px;
+            text-decoration: none;
+            text-shadow: 0 0 10px #007BA7;
+        }
+        nav a:hover {
+            color: #007BA7;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        /* Portal Animation Styles */
+        .portal-placeholder {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .vortex {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #007BA7 0%, #000000 70%);
+            border-radius: 50%;
+            animation: swirl 3s infinite linear;
+            box-shadow: 0 0 20px #007BA7;
+        }
+        @keyframes swirl {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        /* Shaky Link Styles */
+        .shaky-link {
+            display: inline-block;
+            animation: shake 2s infinite;
+            cursor: pointer;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        /* Music Soundwave Styles */
+        .music-placeholder {
+            text-align: center;
+        }
+        .soundwave {
+            width: 200px;
+            height: 50px;
+            background: linear-gradient(90deg, #000000 0%, #007BA7 50%, #000000 100%);
+            animation: wave 2s infinite ease-in-out;
+            margin: 0 auto 10px;
+        }
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <h1>The Obsidian Veil Calendar: Cerulean Echoes – Directors Cut Edition</h1>
+    <p>Enter the digital veil, where time glitches like a malfunctioning program. Mark your days in cerulean code, but beware the loops that echo forever. Less gore, more eerie isolation—Tron meets psychological horror.</p>
+    
+    <nav>
+        <a href="#january">January</a> | <a href="#february">February</a> | <a href="#march">March</a> | <a href="#april">April</a> | <a href="#may">May</a> | <a href="#june">June</a> | <a href="#july">July</a> | <a href="#august">August</a> | <a href="#september">September</a> | <a href="#october">October</a> | <a href="#november">November</a> | <a href="#december">December</a>
+    </nav>
+
+    <div id="january" class="month">
+        <h2>January 2026: Digital Awakening</h2>
+        <p>The obsession boots up as code flickers in cerulean voids, distorting New Year's data streams. Full grid for 2026—mark your glitches.</p>
+        <div class="calendar-grid">
+            <div class="day">Sun</div><div class="day">Mon</div><div class="day">Tue</div><div class="day">Wed</div><div class="day">Thu</div><div class="day">Fri</div><div class="day">Sat</div>
+            <!-- Jan 2026 starts Thu, so blanks for Sun-Wed -->
+            <div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day">1 <input type="checkbox"></div><div class="day">2</div><div class="day">3</div>
+            <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div>
+            <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div>
+            <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div>
+            <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
+        </div>
+        <div class="extras">
+            <h3>Directors Cut: Code Logs</h3>
+            <p>In this sequence, the cerulean grid represents fractured time. Log your glitch: [Blank for user input].</p>
+            <!-- Portal Animation Placeholder -->
+            <div class="portal-placeholder">
+                <div class="vortex"></div>
+                <p>Portal to the Void: Stare long enough, and time may loop.</p>
+            </div>
+            <!-- Shaky Clickable Link -->
+            <a href="https://example.com/hidden-lore-page" target="_blank" class="shaky-link">
+                <div style="background-color: #000000; padding: 10px; border: 1px dashed #007BA7; color: #007BA7;">Shaky Digital Rift: Click to enter hidden lore (opens new tab).</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Placeholder for other months -->
+    <div id="february" class="month">
+        <h2>February 2026: Echoing Loops</h2>
+        <p>Paranoia builds... (Expand grid similarly).</p>
+        <!-- Add full grid and extras here -->
+    </div>
+    <!-- Repeat for other months -->
+
+    <footer>
+        <h2>Bonus Materials: Digital Archives</h2>
+        <p>Full story: A user's obsession glitches the calendar into a virtual nightmare. Prophecy: In July, the neon feast corrupts all data.</p>
+        <!-- Music-Themed Element -->
+        <div class="music-placeholder">
+            <div class="soundwave"></div>
+            <audio id="echo-audio" src="path/to/ambient-track.mp3" loop preload="none"></audio>
+            <button onclick="playEcho()">Play Digital Echo (Ambient Horror Synth)</button>
+        </div>
+        <p>For extras, imagine QR links to glitchy audio.</p>
+    </footer>
+
+    <script>
+        function playEcho() {
+            document.getElementById('echo-audio').play();
+        }
+    </script>
+</body>
+</html>
