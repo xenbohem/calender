@@ -38,6 +38,7 @@
             z-index: 10;
             animation: popOutAndVanish 15s ease-out forwards;
         }
+       
         .jumpscare video {
             width: 100%;
             height: 100%;
@@ -177,15 +178,16 @@
 </head>
 <body>
     <h1>The Obsidian Veil Calendar: Cerulean Echoes – Directors Cut Edition</h1>
-    
-    <!-- Jumpscare with One-Time Video Play -->
-    <div class="jumpscare">
-        <video id="jumpscare-video" autoplay preload="none">
-            <source src="star-coffee-pip.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <button class="play-button" onclick="playVideo()">Play Sound</button>
-    </div>
+     <!-- Jumpscare with Glitch Vanish -->
+<div class="jumpscare">
+    <video id="jumpscare-video" autoplay preload="none">
+        <source src="path/to/pippet-clock-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Glitch Overlay for Vanish -->
+    <div class="glitch-overlay"></div>
+    <button class="play-button" onclick="playVideo()">Play Sound</button>
+</div>
     
     <p>Enter the digital veil, where time glitches like a malfunctioning program. Mark your days in cerulean code, but beware the loops that echo forever. Less gore, more eerie isolation—Tron meets psychological horror.</p>
     
