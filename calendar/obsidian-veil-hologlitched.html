@@ -337,4 +337,79 @@
     <!-- Placeholder for other months -->
     <div id="february" class="month">
         <h2>February 2026: Echoing Loops</h2>
-        <p>
+        <p>Paranoia builds with repeating digital whispers, trapping users in endless cycles. (Expand grid and extras similarly to January for full interactivity.)</p>
+        <!-- Add full grid here if desired -->
+    </div>
+    <!-- Repeat for March-December as needed -->
+
+    <footer>
+        <h2>Bonus Materials: Digital Archives</h2>
+        <p>Full story: A user's obsession glitches the calendar into a virtual nightmare. Prophecy: In July, the neon feast corrupts all data.</p>
+        <!-- Music-Themed Element -->
+        <div class="music-placeholder">
+            <div class="soundwave"></div>
+            <audio id="echo-audio" src="path/to/ambient-track.mp3" loop preload="none"></audio>
+            <button onclick="playEcho()">Play Digital Echo (Ambient Horror Synth)</button>
+        </div>
+        <p>For extras, imagine QR links to glitchy audio.</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById('jumpscare-video');
+        const playButton = document.querySelector('.play-button');
+        const drawer = document.getElementById('audio-drawer');
+        const drawerButtons = document.querySelectorAll('.drawer-button');
+        
+        // Jumpscare video logic: Play once on pop, stop after
+        setTimeout(() => {
+            video.muted = false;
+            video.play().then(() => {
+                video.addEventListener('ended', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }).catch(() => {
+                // Show button if autoplay fails
+                playButton.style.display = 'block';
+            });
+        }, 3000);
+        
+        function playVideo() {
+            video.muted = false;
+            video.play();
+            playButton.style.display = 'none';
+            video.addEventListener('ended', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+        
+        // Drawer toggle
+        function toggleDrawer() {
+            drawer.classList.toggle('open');
+        }
+        
+        // Audio for drawer buttons: Hover preview, click full play + link
+        drawerButtons.forEach(button => {
+            const audioSrc = button.getAttribute('data-audio');
+            const audio = new Audio(audioSrc);
+            
+            button.addEventListener('mouseenter', () => {
+                audio.currentTime = 0; // Reset for hover
+                audio.play();
+            });
+            
+            button.addEventListener('click', () => {
+                audio.currentTime = 0;
+                audio.play();
+                // Link opens in new tab/window as per href
+            });
+        });
+        
+        // Footer music play
+        function playEcho() {
+            document.getElementById('echo-audio').play();
+        }
+    </script>
+</body>
+</html>
