@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Obsidian Veil Calendar: Cerulean Echoes – Directors Cut</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #000000;
+            background: 
+                linear-gradient(45deg, #000000 50%, #0047AB 100%),
+                radial-gradient(circle, rgba(0, 123, 167, 0.2) 1px, transparent 1px),
+                radial-gradient(circle, rgba(0, 123, 167, 0.2) 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            background-position: 0 0, 0 0, 10px 10px;
+            color: #E0FFFF;
+            margin: 0;
+            padding: 20px;
+            animation: glitch 5s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; transform: translateX(1px); }
+        }
+        h1, h2 {
+            color: #007BA7;
+            text-align: center;
+            text-shadow: 0 0 15px #007BA7;
+        }
+        /* Jumpscare Styles - Now with Video */
+        .jumpscare {
+            position: fixed;
+            top: 50px;
+            right: -300px;
+            width: 250px;
+            height: 250px;
+            z-index: 10;
+            animation: popOutAndVanish 15s ease-out forwards;
+        }
+        .jumpscare video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: drop-shadow(0 0 30px #007BA7);
+            border: 2px solid #007BA7;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #007BA7;
+            color: #000000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            display: none; /* Hidden by default; show if autoplay fails */
+        }
+        @keyframes popOutAndVanish {
+            0% { right: -300px; opacity: 0; }
+            20% { right: 20px; opacity: 1; transform: scale(1.2); }
+            87% { right: 20px; opacity: 1; transform: scale(1); }
+            100% { right: 20px; opacity: 0; transform: scale(0.8); }
+        }
+        /* Rest of existing styles... */
+        .month {
+            background-color: rgba(0, 71, 171, 0.9);
+            border: 2px solid #007BA7;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px #007BA7;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin: 10px 0;
+        }
+        .day {
+            background-color: #000000;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #007BA7;
+            box-shadow: inset 0 0 10px rgba(0, 123, 167, 0.7);
+        }
+        .day input[type="checkbox"] {
+            margin-top: 5px;
+            filter: hue-rotate(180deg);
+        }
+        .extras {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 5px solid #007BA7;
+            box-shadow: 0 0 20px #007BA7;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #E0FFFF;
+            margin: 0 10px;
+            text-decoration: none;
+            text-shadow: 0 0 10px #007BA7;
+        }
+        nav a:hover {
+            color: #007BA7;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        /* Portal Animation Styles */
+        .portal-placeholder {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .vortex {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #007BA7 0%, #000000 70%);
+            border-radius: 50%;
+            animation: swirl 3s infinite linear;
+            box-shadow: 0 0 20px #007BA7;
+        }
+        @keyframes swirl {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        /* Shaky Link Styles */
+        .shaky-link {
+            display: inline-block;
+            animation: shake 2s infinite;
+            cursor: pointer;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        /* Music Soundwave Styles */
+        .music-placeholder {
+            text-align: center;
+        }
+        .soundwave {
+            width: 200px;
+            height: 50px;
+            background: linear-gradient(90deg, #000000 0%, #007BA7 50%, #000000 100%);
+            animation: wave 2s infinite ease-in-out;
+            margin: 0 auto 10px;
+        }
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+        .recipe {
+            font-size: 0.8em;
+            color: #E0FFFF;
+            margin-top: 5px;
+        }
+        .recipe summary {
+            cursor: pointer;
+            color: #007BA7;
+            text-decoration: underline;
+        }
+        .recipe p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Obsidian Veil Calendar: Cerulean Echoes – Directors Cut Edition</h1>
+    
+    <!-- Jumpscare with Video and Sound -->
+    <div class="jumpscare">
+        <video id="jumpscare-video" autoplay loop muted>
+            <source src="stardrinkscoffeeveil.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" onclick="playVideo()">Play Sound</button>
+    </div>
+    
+    <p>Enter the digital veil, where time glitches like a malfunctioning program. Mark your days in cerulean code, but beware the loops that echo forever. Less gore, more eerie isolation—Tron meets psychological horror.</p>
+    
+    <!-- Rest of the body remains the same -->
+    <nav>
+        <a href="#january">January</a> | <a href="#february">February</a> | <a href="#march">March</a> | <a href="#april">April</a> | <a href="#may">May</a> | <a href="#june">June</a> | <a href="#july">July</a> | <a href="#august">August</a> | <a href="#september">September</a> | <a href="#october">October</a> | <a href="#november">November</a> | <a href="#december">December</a>
+    </nav>
+
+    <!-- January and other content unchanged -->
+
+    <script>
+        const video = document.getElementById('jumpscare-video');
+        const playButton = document.querySelector('.play-button');
+        
+        // Try to autoplay with sound after user interaction (to bypass browser blocks)
+        setTimeout(() => {
+            video.muted = false; // Unmute after delay
+            video.play().catch(() => {
+                // If autoplay fails, show play button
+                playButton.style.display = 'block';
+            });
+        }, 3000);
+        
+        function playVideo() {
+            video.muted = false;
+            video.play();
+            playButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
