@@ -28,41 +28,63 @@
             text-align: center;
             text-shadow: 0 0 15px #007BA7;
         }
-        /* Jumpscare Styles */
-        .jumpscare {
-            position: fixed;
-            top: 50px;
-            right: -300px;
-            width: 250px;
-            height: 250px;
-            z-index: 10;
-            animation: popOutAndVanish 15s ease-out forwards;
-        }
-       
-        .jumpscare video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: drop-shadow(0 0 30px #007BA7);
-            border: 2px solid #007BA7;
-        }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #007BA7;
-            color: #000000;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            display: none;
-        }
-        @keyframes popOutAndVanish {
-            0% { right: -300px; opacity: 0; }
-            20% { right: 20px; opacity: 1; transform: scale(1.2); }
-            87% { right: 20px; opacity: 1; transform: scale(1); }
-            100% { right: 20px; opacity: 0; transform: scale(0.8); }
+  /* Jumpscare Styles with Glitch */
+.jumpscare {
+    position: fixed;
+    top: 50px;
+    right: -300px;
+    width: 250px;
+    height: 250px;
+    z-index: 10;
+    animation: popOutAndGlitchVanish 15s ease-out forwards;
+}
+.jumpscare video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0 0 30px #007BA7);
+    border: 2px solid #007BA7;
+}
+.glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(45deg, #000000 0%, transparent 50%, #000000 100%);
+    background-size: 4px 4px, 100% 100%;
+    opacity: 0;
+    animation: glitchEffect 15s ease-out forwards;
+    pointer-events: none;
+}
+@keyframes popOutAndGlitchVanish {
+    0% { right: -300px; opacity: 0; }
+    20% { right: 20px; opacity: 1; transform: scale(1.2); }
+    87% { right: 20px; opacity: 1; transform: scale(1); }
+    93% { right: 20px; opacity: 0.8; transform: scale(1.05); } /* Start glitch wobble */
+    100% { right: 20px; opacity: 0; transform: scale(0.8); }
+}
+@keyframes glitchEffect {
+    0%, 87% { opacity: 0; filter: none; }
+    87% { opacity: 0.3; filter: grayscale(100%) contrast(200%) brightness(150%); } /* Initial fizzle */
+    90% { opacity: 0.6; filter: sepia(50%) hue-rotate(90deg) saturate(300%); } /* Static burst */
+    93% { opacity: 0.8; filter: invert(100%) blur(1px); } /* Pixel fizzle */
+    96% { opacity: 0.9; background-color: #000000; } /* Fade to black */
+    100% { opacity: 1; background-color: #000000; filter: none; } /* Full black */
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #007BA7;
+    color: #000000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
         }
         /* Rest of existing styles... */
         .month {
