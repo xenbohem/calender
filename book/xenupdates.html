@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xens Archives</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vampiro+One&family=Cinzel&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Cinzel', serif;
+  overflow: hidden;
+}
+
+/* ✧ STAR VOID */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle, rgba(180,120,200,0.15) 1px, transparent 2px);
+  background-size: 120px 120px;
+  filter: blur(6px);
+  animation: move 60s linear infinite;
+}
+
+@keyframes move {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px,-200px); }
+}
+
+/* ✧ BOOK */
+.book {
+  width: 700px;
+  height: 500px;
+  position: relative;
+  perspective: 2000px;
+}
+
+/* ✧ PAGE */
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: left;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* ✧ FRONT + BACK */
+.page .front,
+.page .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: white;
+  border: 2px solid #2d0f38;
+  box-shadow: inset 0 0 20px rgba(80,20,100,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.page .back {
+  transform: rotateY(180deg);
+}
+
+/* ✧ TURNED STATE */
+.page.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* ✧ COVER */
+.cover {
+  background: linear-gradient(145deg, #1a0a22, #000);
+  color: #d6b3e6;
+  font-family: 'Vampiro One', cursive;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+/* ✧ TEXT */
+h1 {
+  font-family: 'Vampiro One';
+  color: #4b1e5d;
+}
+
+p {
+  color: #2b1235;
+  line-height: 1.6;
+}
+
+/* ✧ LINK */
+a {
+  color: #6d3a80;
+  text-decoration: none;
+}
+a:hover {
+  text-shadow: 0 0 6px rgba(160,108,196,0.6);
+}
+
+/* ✧ MOBILE */
+@media(max-width: 768px){
+  .book {
+    width: 90%;
+    height: 400px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="book" id="book">
+
+  <!-- COVER -->
+  <div class="page">
+    <div class="front cover">
+      Xens Archives
+    </div>
+    <div class="back">
+      <div>
+        <h1>Welcome</h1>
+        <p>This archive is not static. It evolves.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="page">
+    <div class="front">
+      <div>
+        <h1>The Five</h1>
+        <p>
+          Five characters. Separate lives.
+          Slowly intertwining into something larger.
+        </p>
+      </div>
+    </div>
+    <div class="back">
+      <div>
+        <h1>The Structure</h1>
+        <p>
+          The story unfolds through time —
+          entry by entry, piece by piece.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="front">
+      <div>
+        <h1>The Archive</h1>
+        <p>
+          What you see now is only the beginning.
+        </p>
+      </div>
+    </div>
+    <div class="back">
+      <div>
+        <h1>Continue</h1>
+        <p>
+          <a href="https://doevery.day/xensarchives" target="_blank">
+            doevery.day/xensarchives
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const pages = document.querySelectorAll(".page");
+
+pages.forEach((page, index) => {
+  page.addEventListener("click", () => {
+    page.classList.toggle("flipped");
+  });
+});
+</script>
+
+</body>
+</html>
